@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://3fb87rbkiqvy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kbmfp"]
+albedo_color = Color(0.564706, 0.603922, 0.635294, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nvqtu"]
+material = SubResource("StandardMaterial3D_kbmfp")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_er5wh"]
+size = Vector3(38.483, 12.6293, 1)
+
+[node name="ap_office_windowframe" type="StaticBody3D"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.23062, 0, 0, 0, 12.6882, 0, 0, 0, 0.325381, 0.274815, 6.37497, -2.61384)
+mesh = SubResource("BoxMesh_nvqtu")
+skeleton = NodePath("")
+
+[node name="MeshInstance3d2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.23062, 0, 0, 0, 12.6882, 0, 0, 0, 0.325381, 5.69567, 6.37497, -2.61384)
+mesh = SubResource("BoxMesh_nvqtu")
+skeleton = NodePath("")
+
+[node name="MeshInstance3d3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.23062, 0, 0, 0, 12.6882, 0, 0, 0, 0.325381, 11.0897, 6.37497, -2.61384)
+mesh = SubResource("BoxMesh_nvqtu")
+skeleton = NodePath("")
+
+[node name="MeshInstance3d4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.23062, 0, 0, 0, 12.6882, 0, 0, 0, 0.325381, 16.512, 6.37497, -2.61384)
+mesh = SubResource("BoxMesh_nvqtu")
+skeleton = NodePath("")
+
+[node name="MeshInstance3d5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.23062, 0, 0, 0, 12.6882, 0, 0, 0, 0.325381, 21.906, 6.37497, -2.61384)
+mesh = SubResource("BoxMesh_nvqtu")
+skeleton = NodePath("")
+
+[node name="MeshInstance3d6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.23062, 0, 0, 0, 12.6882, 0, 0, 0, 0.325381, 27.2967, 6.37497, -2.61384)
+mesh = SubResource("BoxMesh_nvqtu")
+skeleton = NodePath("")
+
+[node name="MeshInstance3d7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.23062, 0, 0, 0, 12.6882, 0, 0, 0, 0.325381, 32.719, 6.37497, -2.61384)
+mesh = SubResource("BoxMesh_nvqtu")
+skeleton = NodePath("")
+
+[node name="MeshInstance3d8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.23062, 0, 0, 0, 12.6882, 0, 0, 0, 0.325381, 38.1131, 6.37497, -2.61384)
+mesh = SubResource("BoxMesh_nvqtu")
+skeleton = NodePath("")
+
+[node name="bottom bar" type="MeshInstance3D" parent="."]
+transform = Transform3D(38.5207, 0, 0, 0, 0.307716, 0, 0, 0, 0.30477, 19.1518, 0.179043, -2.62217)
+mesh = SubResource("BoxMesh_nvqtu")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.384815, 19.1472, 6.30513, -2.64259)
+shape = SubResource("BoxShape3D_er5wh")

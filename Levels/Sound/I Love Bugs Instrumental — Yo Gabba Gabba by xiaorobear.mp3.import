@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://buowk6fphsgtg"
+path="res://.godot/imported/I Love Bugs Instrumental — Yo Gabba Gabba by xiaorobear.mp3-5afedf7c6182d43889180e745c6573a8.mp3str"
+
+[deps]
+
+source_file="res://Levels/Sound/I Love Bugs Instrumental — Yo Gabba Gabba by xiaorobear.mp3"
+dest_files=["res://.godot/imported/I Love Bugs Instrumental — Yo Gabba Gabba by xiaorobear.mp3-5afedf7c6182d43889180e745c6573a8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

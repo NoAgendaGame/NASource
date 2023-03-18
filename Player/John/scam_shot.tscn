@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://mnj6scf2b8pd"]
+
+[ext_resource type="Script" path="res://Player/John/scam_shot.gd" id="1_ddcv4"]
+[ext_resource type="Texture2D" uid="uid://clcdkcys7hioo" path="res://Player/John/Sprites/Fire/scamshot.png" id="2_tf20v"]
+[ext_resource type="AudioStream" uid="uid://dd2radths6p6d" path="res://Player/John/Sounds/DvorakScam.mp3" id="3_jwrm7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ueof6"]
+atlas = ExtResource("2_tf20v")
+region = Rect2(0, 0, 499, 388)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6nwr"]
+atlas = ExtResource("2_tf20v")
+region = Rect2(499, 0, 499, 388)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nhwbt"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ueof6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6nwr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5wbva"]
+size = Vector3(3.60721, 1.79472, 1)
+
+[node name="ScamShot" type="CharacterBody3D"]
+transform = Transform3D(0.461294, 0, 0, 0, 0.461294, 0, 0, 0, 1, 0, 0, 0)
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("1_ddcv4")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nhwbt")
+autoplay = "default"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.64349, 0, 0, 0)
+shape = SubResource("BoxShape3D_5wbva")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+aabb = AABB(-2.47526, -1.41738, -1, 4.95051, 2.83477, 2)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jwrm7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.001
+one_shot = true
+autostart = true
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,144 @@
+[gd_scene load_steps=20 format=3 uid="uid://b84soq537t1ti"]
+
+[ext_resource type="Script" path="res://Enemies/vax_scenester.gd" id="1_f4lua"]
+[ext_resource type="Texture2D" uid="uid://bqhk6e58gtxwl" path="res://Enemies/sprites/vaxscenester.png" id="2_aoq1c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72x2x"]
+atlas = ExtResource("2_aoq1c")
+region = Rect2(0, 0, 726, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ylmc"]
+atlas = ExtResource("2_aoq1c")
+region = Rect2(726, 0, 726, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_diwb1"]
+atlas = ExtResource("2_aoq1c")
+region = Rect2(1452, 0, 726, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_raaf8"]
+atlas = ExtResource("2_aoq1c")
+region = Rect2(2178, 0, 726, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8ugx"]
+atlas = ExtResource("2_aoq1c")
+region = Rect2(2904, 0, 726, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ya4o"]
+atlas = ExtResource("2_aoq1c")
+region = Rect2(3630, 0, 726, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03nfx"]
+atlas = ExtResource("2_aoq1c")
+region = Rect2(4356, 0, 726, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lixm1"]
+atlas = ExtResource("2_aoq1c")
+region = Rect2(5082, 0, 726, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ntvl"]
+atlas = ExtResource("2_aoq1c")
+region = Rect2(5808, 0, 726, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqaof"]
+atlas = ExtResource("2_aoq1c")
+region = Rect2(6534, 0, 726, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xin2f"]
+atlas = ExtResource("2_aoq1c")
+region = Rect2(7260, 0, 726, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yb6sl"]
+atlas = ExtResource("2_aoq1c")
+region = Rect2(7986, 0, 726, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukgq2"]
+atlas = ExtResource("2_aoq1c")
+region = Rect2(8712, 0, 726, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0up3"]
+atlas = ExtResource("2_aoq1c")
+region = Rect2(9438, 0, 726, 682)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u4j80"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72x2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ylmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_diwb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_raaf8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8ugx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ya4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03nfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lixm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ntvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqaof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xin2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yb6sl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukgq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0up3")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_p1phu"]
+height = 5.77609
+radius = 2.42172
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fjcht"]
+height = 5.72404
+radius = 2.08815
+
+[node name="Vax-Scenester" type="CharacterBody3D" groups=["enemy"]]
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("1_f4lua")
+
+[node name="AnimatedSprite3d" type="AnimatedSprite3D" parent="."]
+alpha_cut = 2
+sprite_frames = SubResource("SpriteFrames_u4j80")
+animation = &"walk"
+frame_progress = 0.456135
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.16169, 0, 0, 0, 0.162997, -0.446569, -0.0541294, 0)
+shape = SubResource("CylinderShape3D_p1phu")
+
+[node name="sides_checker" type="Area3D" parent="."]
+transform = Transform3D(1.25933, 0, 0, 0, 1, 0, 0, 0, 1, 0.114653, 0.0405973, 0)
+collision_layer = 0
+collision_mask = 33
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sides_checker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.437545, -0.446569, -0.0541296, 0)
+shape = SubResource("CylinderShape3D_fjcht")
+
+[connection signal="body_entered" from="sides_checker" to="." method="_on_sides_checker_body_entered"]

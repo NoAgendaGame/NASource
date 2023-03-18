@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://vl80qlwvt3sn"]
+
+[ext_resource type="Script" path="res://Levels/cloud.gd" id="1_og0cx"]
+[ext_resource type="Texture2D" uid="uid://bctnwswl3qdor" path="res://Levels/Sprites/ap_office/cloud.png" id="1_tc2u6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13ltm"]
+transparency = 1
+albedo_texture = ExtResource("1_tc2u6")
+uv1_scale = Vector3(1, 1, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_k0fyc"]
+material = SubResource("StandardMaterial3D_13ltm")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_nbu5k"]
+points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
+
+[node name="CharacterBody3d" type="CharacterBody3D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_og0cx")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.53661, 0, 0, 0, -4.49353e-08, -1.21745, 0, 1.028, -5.32163e-08, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_k0fyc")
+skeleton = NodePath("")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="."]
+transform = Transform3D(3.53661, 0, 0, 0, -4.49353e-08, -1.21745, 0, 1.028, -5.32163e-08, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_nbu5k")

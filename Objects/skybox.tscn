@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu7wtahgajd5j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uy3ll"]
+albedo_color = Color(0.713726, 0.780392, 0.85098, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fka7t"]
+material = SubResource("StandardMaterial3D_uy3ll")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kl08b"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0t45c"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[node name="Node3d" type="Node3D"]
+
+[node name="StaticBody3d" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="right sky" type="MeshInstance3D" parent="StaticBody3d"]
+transform = Transform3D(0.585613, 0, 0, 0, 26.412, 0, 0, 0, 5.70328, 106.466, 4.9889, -6.75629)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_fka7t")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3d2" type="CollisionShape3D" parent="StaticBody3d"]
+transform = Transform3D(0.585613, 0, 0, 0, 26.412, 0, 0, 0, 5.70328, 106.466, 4.9889, -6.75629)
+shape = SubResource("ConvexPolygonShape3D_kl08b")
+
+[node name="left sky" type="MeshInstance3D" parent="StaticBody3d"]
+transform = Transform3D(0.585613, 0, 0, 0, 26.412, 0, 0, 0, 5.70328, -14.8735, 4.9889, -6.75629)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_fka7t")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="StaticBody3d"]
+transform = Transform3D(0.585613, 0, 0, 0, 26.412, 0, 0, 0, 5.70328, -14.8735, 4.9889, -6.75629)
+shape = SubResource("ConvexPolygonShape3D_0t45c")
+
+[node name="back sky" type="MeshInstance3D" parent="StaticBody3d"]
+transform = Transform3D(121.209, 0, 0, 0, 26.412, 0, 0, 0, 0.438119, 45.8736, 4.9889, -9.39073)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_fka7t")
+skeleton = NodePath("../..")

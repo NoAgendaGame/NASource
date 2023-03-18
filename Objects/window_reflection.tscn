@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4lb3tuutmr14"]
+
+[ext_resource type="Texture2D" uid="uid://b6vydmlrx27qs" path="res://Levels/Sprites/ap_office/window_reflection.png" id="1_a6r8t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_omncc"]
+transparency = 1
+albedo_texture = ExtResource("1_a6r8t")
+uv1_scale = Vector3(1, 0.875, 1)
+uv1_offset = Vector3(0, 0.5, 0)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_lns74"]
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_omncc")
+
+[node name="window_reflection" type="MeshInstance3D"]
+transform = Transform3D(15.6471, 0, 0, 0, 2.2358, 0, 0, 0, 0.368531, 0, 0, 0)
+mesh = SubResource("BoxMesh_lns74")

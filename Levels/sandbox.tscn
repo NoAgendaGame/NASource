@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3 uid="uid://ceetsecillxmo"]
+
+[ext_resource type="PackedScene" uid="uid://cf0lhtonyulph" path="res://Player/john.tscn" id="1_dbuja"]
+[ext_resource type="PackedScene" uid="uid://b84soq537t1ti" path="res://Enemies/vax_scenester.tscn" id="2_0i8sw"]
+[ext_resource type="Script" path="res://Levels/Camera3d.gd" id="3_dbl1b"]
+[ext_resource type="PackedScene" uid="uid://b82nwpbcuj8g0" path="res://Objects/money.tscn" id="4_pvjc5"]
+
+[sub_resource type="GDScript" id="GDScript_kma7j"]
+
+[sub_resource type="Environment" id="Environment_1r47n"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqp3o"]
+albedo_color = Color(0.333333, 0.388235, 0.470588, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tdfop"]
+material = SubResource("StandardMaterial3D_dqp3o")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3gf07"]
+
+[node name="sandbox" type="Node3D"]
+script = SubResource("GDScript_kma7j")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1r47n")
+
+[node name="John" parent="." instance=ExtResource("1_dbuja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.67407, -3.70152)
+
+[node name="Vax-Scenester" parent="." instance=ExtResource("2_0i8sw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.203374, 8.80457, 2.76984)
+direction = 1
+
+[node name="Camera3d" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.83802, 10.2366)
+script = ExtResource("3_dbl1b")
+
+[node name="items" type="Node" parent="."]
+
+[node name="money" parent="items" instance=ExtResource("4_pvjc5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.25509, 2.33241, -4.82384)
+
+[node name="money2" parent="items" instance=ExtResource("4_pvjc5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.15625, 2.33241, 4.50578)
+
+[node name="money3" parent="items" instance=ExtResource("4_pvjc5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.715, 2.33241, -4.77083)
+
+[node name="Level" type="Node" parent="."]
+
+[node name="left wall" type="StaticBody3D" parent="Level"]
+transform = Transform3D(0.433067, 0, 0, 0, 12.3342, 0, 0, 0, 12.9253, -16.147, 6.07829, 0)
+collision_layer = 2
+collision_mask = 17
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="Level/left wall"]
+mesh = SubResource("BoxMesh_tdfop")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Level/left wall"]
+shape = SubResource("BoxShape3D_3gf07")
+
+[node name="right wall" type="StaticBody3D" parent="Level"]
+transform = Transform3D(0.433067, 0, 0, 0, 12.3342, 0, 0, 0, 12.9253, 16.0691, 6.07829, 0)
+collision_layer = 2
+collision_mask = 17
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="Level/right wall"]
+mesh = SubResource("BoxMesh_tdfop")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Level/right wall"]
+shape = SubResource("BoxShape3D_3gf07")
+
+[node name="floor" type="StaticBody3D" parent="Level"]
+transform = Transform3D(32.3916, 0, 0, 0, 0.27355, 0, 0, 0, 12.9253, 0, 0, 0)
+collision_layer = 2
+collision_mask = 17
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="Level/floor"]
+mesh = SubResource("BoxMesh_tdfop")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Level/floor"]
+shape = SubResource("BoxShape3D_3gf07")

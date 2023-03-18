@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://brgtxbuxh7tn4"]
+
+[ext_resource type="Script" path="res://HUD.gd" id="1_ystbp"]
+[ext_resource type="Texture2D" uid="uid://evnua81w6jy" path="res://Objects/Sprites/idlecash.png" id="2_5qt7p"]
+[ext_resource type="FontFile" uid="uid://f4o3svcxxln7" path="res://assets/fonts/MouseMemoirs-Regular.ttf" id="3_hpuqy"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_ystbp")
+
+[node name="MoneyIcon" type="TextureRect" parent="."]
+offset_left = 35.0
+offset_top = 16.0
+offset_right = 329.0
+offset_bottom = 310.0
+scale = Vector2(0.28, 0.28)
+texture = ExtResource("2_5qt7p")
+stretch_mode = 4
+
+[node name="X" type="Label" parent="."]
+offset_left = 123.0
+offset_top = 28.0
+offset_right = 163.0
+offset_bottom = 116.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("3_hpuqy")
+theme_override_font_sizes/font_size = 38
+text = "x"
+
+[node name="Money" type="Label" parent="."]
+offset_left = 145.0
+offset_top = 28.0
+offset_right = 185.0
+offset_bottom = 116.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("3_hpuqy")
+theme_override_font_sizes/font_size = 38
+text = "##"

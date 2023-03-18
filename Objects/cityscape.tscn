@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://6dab8l0iglwf"]
+
+[ext_resource type="Texture2D" uid="uid://xmcntkyscdjt" path="res://Levels/Sprites/ap_office/buildingskyline.png" id="1_cpx1u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_omncc"]
+transparency = 1
+albedo_texture = ExtResource("1_cpx1u")
+uv1_scale = Vector3(1, 0.875, 1)
+uv1_offset = Vector3(0, 0.5, 0)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_lns74"]
+material = SubResource("StandardMaterial3D_omncc")
+
+[node name="cityscape" type="MeshInstance3D"]
+transform = Transform3D(15.6471, 0, 0, 0, 2.2358, 0, 0, 0, 0.368531, 0, 0, 0)
+mesh = SubResource("BoxMesh_lns74")
